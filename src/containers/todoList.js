@@ -30,11 +30,19 @@ class todoList extends Component {
       body: input
     };
     createTodo(params);
+    this.resetForm();
+  };
+
+  resetForm = () => {
+    this.setState(prev => ({
+      title: "",
+      input: ""
+    }));
   };
 
   render() {
     const { todos } = this.props;
-    const { title } = this.state;
+    const { title, input } = this.state;
 
     return (
       <div>
@@ -58,6 +66,7 @@ class todoList extends Component {
             style={{ width: "300px", height: "150px" }}
             onChange={e => this.handleInput(e)}
             name="input"
+            value={input}
           />
           <br />
           <button style={{ width: "300px" }} type="submit">

@@ -21,8 +21,8 @@ function* getTodosSaga(action) {
 
 function* createTodo(action) {
   try {
-    const res = yield axios.post(`http://localhost:3002/todos`, action.params);
-    yield console.log(res);
+    yield axios.post(`http://localhost:3002/todos`, action.params);
+    yield getTodosSaga();
   } catch (e) {}
 }
 
